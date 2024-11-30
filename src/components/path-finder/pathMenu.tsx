@@ -1,11 +1,13 @@
 'use client'
 
-import { usePath } from '@/contexts/path-finder/usePath'
 import React from 'react'
 
-const PathMenu = () => {
+interface PropsType{
+    setSelectedType:(type:string) => void;
+    visualize:()=>void;
+}
 
-    const {setSelectedType} = usePath();
+const PathMenu = ({setSelectedType, visualize}:PropsType) => {
 
   return (
     <div className='w-full bg-white flex justify-center'>
@@ -13,6 +15,7 @@ const PathMenu = () => {
             <button className='flex h-3/5 w-28 rounded-lg justify-center items-center gap-2' onClick={()=>setSelectedType('start')}>Start Point <div className='h-5 w-5 bg-red-500' /></button>
             <button className='flex h-3/5 w-28 rounded-lg justify-center items-center gap-2' onClick={()=>setSelectedType('end')}>End Point <div className='h-5 w-5 bg-green-500' /></button>
             <button className='flex h-3/5 w-28 rounded-lg justify-center items-center gap-2' onClick={()=>setSelectedType('wall')}>Wall <div className='h-5 w-5 bg-black' /></button>
+            <button className='bg-blue-400 border border-black text-white p-3 rounded-lg hover:bg-blue-500' onClick={visualize}>Visualize</button>
         </div>
     </div>
   )
