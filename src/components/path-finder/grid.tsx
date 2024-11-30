@@ -46,8 +46,8 @@ const Grid = () => {
   }
 
   const visualize = () => {
-    const startNode = grid[10][5];
-    const endNode = grid[10][45];
+    const startNode = grid[start.row][start.col];
+    const endNode = grid[end.row][end.col];
     const visitedNodesInOrder = bfs(grid, startNode, endNode);
     for (let i = 0; i <= visitedNodesInOrder.length; i++) {
       setTimeout(() => {
